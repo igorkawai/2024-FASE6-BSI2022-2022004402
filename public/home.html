@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta</title>
+    <script src="home.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="body__content">
+          <main>
+            <h1>Conta</h1>
+            <button id="view-button">Visuzalizar</button>
+            <button id="edit-button">Editar</button>
+            
+            <dialog id="view-dialog">
+              <h2>Dados:</h2>
+              <u>
+                <li>Nome: <span id="user-name-dialog"></span></li>
+                <li>Email: <span id="user-mail-dialog"></span></li>
+              </ul>
+              <button id="view-close-button">Close</button>
+            </dialog>
+    
+            <dialog id="edit-dialog">
+              <form id="user-data-edit">
+                <div class="input-container">
+                  <label for="name">Nome</label>
+                  <input type="text" name="name">
+                </div>
+                <div class="input-container">
+                  <label for="email">E-mail</label>
+                  <input type="email" name="email">
+                </div>
+                <div class="input-container">
+                  <label for="password">Senha</label>
+                  <input type="password" name="password">
+                </div>
+                <div class="actions-container">
+                  <button data-action="discard">Descartar alterações</button>
+                  <button data-action="update">Alterar</button>
+                  <button data-action="delete">Excluir conta</button>
+                </div>
+              </form>
+              <button id="edit-close-button">Close</button>
+            </dialog>
+    
+            <dialog id="alert-dialog">
+              <p id="alert-message"></p>
+              <button id="true-button"></button>
+              <button id="false-button"></button>
+            </dialog>
+          </main>
+        </div>
+      </div>
+</body>

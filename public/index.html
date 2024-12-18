@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <form id="loginForm">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      
+      console.log(password)
+      const response = await fetch('/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (data) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userName', data.userName)
+        localStorage.setItem('userEmail', data.userEmail)
+        localStorage.setItem('userId', data.userId)
+        alert('Login successful');
+        location.href = '/home.html'
+      } else {
+        alert('Login failed');
+      }
+    });
+  </script>
+</body>
+</html>
